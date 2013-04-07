@@ -1,0 +1,48 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+@media (max-width: 980px) {
+    /* Enable use of floated navbar text */
+    .navbar-text.pull-right {
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+.stage{
+    text-align: center;
+    padding: 20px;
+}
+.show-grid [class*="span"] {
+    background-color: #1ABC9C;
+    color:#FEFEFE;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    min-height: 40px;
+    line-height: 40px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.show-grid .available:hover{
+    background-color: #16A085;
+}
+.show-grid .clicked{
+    background-color: #34495E;
+}
+.show-grid .booked{
+    background-color: #95A5A6;
+    cursor: not-allowed;
+}
+.show-grid .reserved{
+    background-color: #2980B9;
+    cursor: not-allowed;
+}
