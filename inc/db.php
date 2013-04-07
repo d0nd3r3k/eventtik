@@ -1,5 +1,6 @@
 <?php
 
+
 class edb {
 
     public function authenticate($email, $password) {
