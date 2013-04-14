@@ -9,9 +9,9 @@
 
         <!-- Le styles -->
         <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/style.css" rel="stylesheet" media="screen">
         <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
+        <link href="css/style.css" rel="stylesheet" media="screen">
+        
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src="lib/bootstrap/js/html5shiv.js"></script>
@@ -32,7 +32,7 @@
                     <a class="brand" href="#">Eventik</a>
                     <div class="nav-collapse collapse">
                         <p class="navbar-text pull-right">
-                            Logged in as <a href="#" class="navbar-link">Richard</a>
+                            <a href="#signUpModal" class="signup" data-toggle="modal" >Sign up</a>
                         </p>
                     </div><!--/.nav-collapse -->
                 </div>

@@ -46,3 +46,11 @@ body {
     background-color: #2980B9;
     cursor: not-allowed;
 }
+.modal-signup{
+    width: 450px;
+    left: 50%;
+    margin-left: -225px;
+
+}
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+
