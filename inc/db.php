@@ -24,8 +24,18 @@ class edb {
             return false;
     }
 
+    public function getEvents() {
+        $query = "SELECT * FROM events";
+        $result = mysql_query($query);
+        $data = array();
+        while ($row = mysql_fetch_object($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
     public function insertUser($email, $full_name, $password) {
-        
+
         $email = mysql_real_escape_string($email);
         $full_name = mysql_real_escape_string($full_name);
         $password = mysql_real_escape_string($password);
@@ -36,7 +46,7 @@ class edb {
         return mysql_insert_id();
     }
 
-    public function insertEvent($name, $location, $rows, $columns, $type, $date) {
+    public function insertEvent($name, $location, $rows, $columns, $type, $img, $description, $date) {
 
 
         $name = mysql_real_escape_string($name);
@@ -44,10 +54,11 @@ class edb {
         $rows = mysql_real_escape_string($rows);
         $columns = mysql_real_escape_string($columns);
         $type = mysql_real_escape_string($type);
+        $description = mysql_real_escape_string($description);
         $date = mysql_real_escape_string($date);
 
 
-        $query = "INSERT INTO events (name, location, rows, columns, type, date) VALUES ('$name','$location','$rows','$columns','$type','$date')";
+        $query = "INSERT INTO events (name, location, rows, columns, type, img, description, date) VALUES ('$name','$location','$rows','$columns','$type','$img','$description','$date')";
         mysql_query($query);
 
         return mysql_insert_id();

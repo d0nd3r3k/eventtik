@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //Data from db
-    var zone1 = {
+/*    var zone1 = {
         "rows":6,
         "columns":12,
         "price":40,
@@ -41,7 +41,7 @@ $(document).ready(function(){
         else
             $(this).removeClass('clicked');
     });
-    
+    */
     /*Sign-Up Controller*/
     $("#submitSignupForm").on('click',function(e) {
         

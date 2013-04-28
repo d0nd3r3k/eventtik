@@ -1,41 +1,53 @@
 <?php include_once('header.php'); ?>
+<?php
+include('inc/config.php');
+include('inc/db.php');
+
+$db = new edb();
+
+$events = $db->getEvents();
+?>
 <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
+    <?php include('sidemenu.php'); ?>
 
-                    <li><a href="#"><i class="icon-home"></i>Home</a></li>
-                    <li class="nav-header">Events</li>
-                    <li class="active"><a href="#"><i class="icon-list"></i>List events</a></li>
-                    <li><a href="#"><i class="icon-calendar"></i>Your events</a></li>
-                    <li class="nav-header">Profile</li>
-                    <li><a href="#"><i class="icon-user"></i>Edit Profile</a></li>
-                    <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
-
-                </ul>
-            </div><!--/.well -->
-        </div><!--/span-->
-
-        <div id="stage" class="span10">
-            <div class="hero-unit stage">
-                <h2>Stage</h2>
-            </div>
-
-
+    <div id="stage" class="span10">
+        <div class="hero-unit stage">
+            <h2>Events</h2>
         </div>
 
-    </div><!--/row-->
-    <div class="row-fluid">
-        <div class="span2"></div>
-        <div class="span10">
-            <div class="span9"></div>
 
-            <div class="span3">
-                <button href="#myModal" data-toggle="modal" class="btn btn-large btn-block btn-primary" type="button">Reserve Now!</button> 
-            </div>
+        <div id="listEvents">
+
+            <?php
+            foreach ($events as $key => $value) {
+
+                $rows = (int) $value->rows;
+                $cols = (int) $value->columns;
+                $seats = $rows * $cols;
+
+                $block = "<div class='event-block'>";
+                $block .= "<h4>" . $value->name . "</h4>";
+                $block .= "<img src='admin/uploads/" . $value->img . "' />";
+                $block .= "<div class='info'></div>";
+                $block .= "<ul>";
+                $block .= "<li>Locations: <span>" . $value->location . "</span></li>";
+                $block .= "<li>Date: <span>" . $value->date . "</span></li>";
+                $block .= "<li>Type: <span>" . $value->type . "</span></li>";
+                $block .= "<li>Seats: <span>" . $seats . "</span></li>";
+                $block .= "<li>Status: <span> Available</span></li>";
+                $block .= "</ul>";
+                $block .= "</div>";
+
+
+                echo $block;
+            }
+            ?>
+
         </div>
     </div>
+
+
+
 
     <hr>
     <!-- Modal -->
@@ -75,25 +87,25 @@
                     <div class="control-group fullName-group">
                         <label class="control-label" for="inputPassword">Full Name</label>
                         <div class="controls">
-                            <input type="text" name="inputName" class="required" id="inputName" placeholder="Full Name">
+                            <input type="text" name="inputName" class="required" id="inputName" placeholder="Full Name" required>
                         </div>
                     </div>
                     <div class="control-group email-group">
                         <label class="control-label" for="inputEmail">Email</label>
                         <div class="controls">
-                            <input type="text" id="inputEmail" name="inputEmail" id="inoutEmail" class="required" placeholder="Email">
+                            <input type="email" id="inputEmail" name="inputEmail" id="inoutEmail" class="required" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="control-group password-group">
                         <label class="control-label" for="inputPassword">Password</label>
                         <div class="controls">
-                            <input type="password" id="inputPassword" name="inputPassword" class="required" placeholder="Password">
+                            <input type="password" id="inputPassword" name="inputPassword" class="required" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="control-group repassword-group">
                         <label class="control-label"  for="inputPassword">Confirm Password</label>
                         <div class="controls">
-                            <input type="password" id="reinputPassword" name="reinputPassword" class="required" placeholder="Confirm Password">
+                            <input type="password" id="reinputPassword" name="reinputPassword" class="required" placeholder="Confirm Password" required>
                         </div>
                     </div>
                 </form>
@@ -106,5 +118,7 @@
     </div>
     <?php
     include_once('footer.php');
+
+
 
     

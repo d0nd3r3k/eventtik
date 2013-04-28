@@ -54,3 +54,32 @@ body {
 }
 label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
 
+.event-block img {
+    height: 180px;
+    width: 220px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+
+.event-block ul {
+    list-style: none;
+    text-align: left;
+    color: #666;
+    margin-top: 8px;
+}
+.event-block ul li span{
+    font-weight: bold;
+}
+.event-block{
+    width: 250px;
+    background: #EEE;
+    text-align: center;
+    padding: 10px 5px;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    float: left;
+    margin: 10px;
+}
