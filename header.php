@@ -1,3 +1,4 @@
+<?php include('inc/config.php');?>
 <!DOCTYPE html>
 <html lang="en">
     <script id="tinyhippos-injected" style="color: rgb(0, 0, 0);">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head>
@@ -29,10 +30,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" href="#">Eventik</a>
+                    <a class="brand" href="<?php echo BASE_URL;?>">Eventik</a>
                     <div class="nav-collapse collapse">
                         <p class="navbar-text pull-right">
-                            <a href="#signUpModal" class="signup" data-toggle="modal" >Sign up</a>
+                            <form id="signnForm" class='signin-form'>
+                                
+                                    <ul class='inline-signin'>
+                                        <li><input type="text" placeholder="Username"></li>
+                                    
+                                        <li><input type="password" placeholder="Password"></li>
+                                    
+                                        <li><button class="btn primary" type="submit">Sign in</button>
+                                            <button href="#signUpModal" class="btn primary" type="submit" data-toggle="modal" >Sign up</button>
+                                        </li>
+                                    
+                                </ul>
+                            </form>
+                            
+                            
                         </p>
                     </div><!--/.nav-collapse -->
                 </div>

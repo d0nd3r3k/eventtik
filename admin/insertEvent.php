@@ -8,11 +8,18 @@ $db = new edb();
 $eventName = $_POST['eventName'];
 $eventLocation = $_POST['eventLocation'];
 $eventType = $_POST['eventType'];
-$eventRows = $_POST['eventRows'];
-$eventCols = $_POST['eventCols'];
 $eventDesc = $_POST['eventDesc'];
 $eventDate = $_POST['eventDate'];
 
+//Theater Setup
+$theater = array();
+$eventRows = $_POST['eventRows'];
+$eventCols = $_POST['eventCols'];
+$eventZone = $_POST['eventZone'];
+$eventPrice = $_POST['eventPrice'];
+
+array_push($theater, $eventRows, $eventCols, $eventZone, $eventPrice );
+$json = json_encode($theater);
 
 $fn = (isset($_SERVER['HTTP_X_FILENAME']) ? $_SERVER['HTTP_X_FILENAME'] : false);
 if ($fn) {
@@ -35,5 +42,5 @@ if ($fn) {
         }
     }
 }
-$db->insertEvent($eventName, $eventLocation, $eventRows, $eventCols, $eventType, $fn, $eventDesc, $eventDate);
+$db->insertEvent($eventName, $eventLocation, $json, $eventType, $fn, $eventDesc, $eventDate);
 ?>

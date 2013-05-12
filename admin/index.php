@@ -106,20 +106,6 @@
                                 </div>
                             </div>
 
-                            <div class="control-group eventRows-group">
-                                <label class="control-label" for="eventRows"></label>
-                                <div class="controls">
-                                    <input type="text" name="eventRows" class="required" id="eventRows" placeholder="Theater Rows" required>
-                                </div>
-                            </div>
-
-                            <div class="control-group eventCols-group">
-                                <label class="control-label" for="eventCols"></label>
-                                <div class="controls">
-                                    <input type="text" name="eventCols" class="required" id="eventCols" placeholder="Theater Cols" required>
-                                </div>
-                            </div>
-
                             <div class="control-group eventDesc-group">
                                 <label class="control-label" for="eventDesc"></label>
                                 <div class="controls">
@@ -141,12 +127,44 @@
                                     <input type="date" name="eventDate" class="required" id="eventDate" placeholder="Event Date" required>
                                 </div>
                             </div>
+                            <br />
+                            <h3>Theater Setup:</h3>
+                            <div id="theaterSetup">
+                                <div class="control-group eventRows-group mainZone">
+                                    <hr />
+                                    <label class="control-label" for="eventRows"></label>
+                                    <div class="controls">
+                                        <input type="text" name="eventRows[]" class="required" id="eventRows" placeholder="Theater Rows" required>
+                                    </div>
+                                </div>
 
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                    <button type="submit">Upload Files</button>
-                </div>
+                                <div class="control-group eventCols-group mainZone">
+                                    <label class="control-label" for="eventCols"></label>
+                                    <div class="controls">
+                                        <input type="text" name="eventCols[]" class="required" id="eventCols" placeholder="Theater Cols" required>
+                                    </div>
+                                </div>
+                                <div class="control-group eventZone-group mainZone">
+                                    <label class="control-label" for="eventZone"></label>
+                                    <div class="controls">
+                                        <input type="text" name="eventZone[]" class="required" id="eventZone" placeholder="Theater Zone Name" required>
+                                    </div>
+                                </div>    
+                                <div class="control-group eventPrice-group mainZone">
+                                    <label class="control-label" for="eventPrice"></label>
+                                    <div class="controls">
+                                        <input type="text" name="eventPrice[]" class="required" id="eventPrice" placeholder="Zone Price" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn" id="addZone">Add New Zone</button>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                <button type="submit">Upload Files</button>
+                            </div>
+
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -190,6 +208,11 @@
                     xhr.send(file);
                 }
             }
+            $(document).ready(function(){
+                $('#addZone').on('click', function(){
+                    $('.mainZone').clone().appendTo('#theaterSetup').removeClass('mainZone');
+                })
+            });
         
         </script>
     </body>

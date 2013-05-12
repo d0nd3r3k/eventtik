@@ -58,14 +58,14 @@
             <div class="content">
                 <div class="row">
                     <div class="login-form">
-                        <h2>Sign Up</h2>
-                        <form action="controller/singup.php">
+                        <h2>Sign In</h2>
+                        <form method="POST" action="controller/authenticate.php">
                             <fieldset>
                                 <div class="clearfix">
-                                    <input type="text" placeholder="Username">
+                                    <input type="text" name='inputEmail' placeholder="Username">
                                 </div>
                                 <div class="clearfix">
-                                    <input type="password" placeholder="Password">
+                                    <input type="password" name="inputPassword" placeholder="Password">
                                 </div>
                                 <button class="btn primary" type="submit">Sign in</button>
                             </fieldset>
