@@ -1,4 +1,10 @@
-<?php include('inc/config.php');?>
+<?php 
+session_start();
+include('inc/config.php');
+if($_SESSION['loggedIn']){
+   $name = $_SESSION['name'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <script id="tinyhippos-injected" style="color: rgb(0, 0, 0);">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head>
@@ -33,12 +39,14 @@
                     <a class="brand" href="<?php echo BASE_URL;?>">Eventik</a>
                     <div class="nav-collapse collapse">
                         <p class="navbar-text pull-right">
-                            <form id="signnForm" class='signin-form'>
+                            <div class='signin-form' >
+                            <?php if(!$_SESSION['loggedIn']){?>
+                            <form id="signinForm" method="POST">
                                 
                                     <ul class='inline-signin'>
-                                        <li><input type="text" placeholder="Username"></li>
+                                        <li><input type="text" name="username" placeholder="Username" autocomplete="off"></li>
                                     
-                                        <li><input type="password" placeholder="Password"></li>
+                                        <li><input type="password" name="password" placeholder="Password" autocomplete="off"></li>
                                     
                                         <li><button class="btn primary" type="submit">Sign in</button>
                                             <button href="#signUpModal" class="btn primary" type="submit" data-toggle="modal" >Sign up</button>
@@ -46,7 +54,11 @@
                                     
                                 </ul>
                             </form>
-                            
+                            <?php }
+                            else {
+                                echo "Welcome ".$name." <a id='logout' href='#' >Logout</a>";
+                            } ?>
+                        </div>
                             
                         </p>
                     </div><!--/.nav-collapse -->

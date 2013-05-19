@@ -23,7 +23,17 @@ class edb {
         else
             return false;
     }
-
+    
+    public function getUserByEmail($email) {
+        $query = "SELECT * FROM users WHERE email='$email'";
+        $result = mysql_query($query);
+        $data = array();
+        while ($row = mysql_fetch_object($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    
     public function getEvents() {
         $query = "SELECT * FROM events";
         $result = mysql_query($query);

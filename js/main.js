@@ -53,17 +53,22 @@ $(document).ready(function(){
         var id = $(this).data('id');
         window.location = 'http://localhost/eventik/events.php?id='+id;
     });
-    $('#signnForm').on('submit', function(e){
+    $('#signinForm').on('submit', function(e){
         e.preventDefault();
-        console.log($(this).serialize());
+        var data = $(this).serialize();
+        
         var url = 'controller/authenticate.php'
         $.ajax({
                 type : "POST",
                 url : url,
-                data : $(this).serialize(),
-                cache : false,
-                complete : function(data) {
-                    console.log(data);
+                data : data,
+                cache : false
+            }).done(function( response ) {
+                console.log(response);
+                if(response == 0){  
+                    alert("Wrong Username/Password");
+                } else{  
+                    $(".signin-form").html("Welcome " + response + " <a id='logout' href='#' > Logout</a>");
                 }
             });
         

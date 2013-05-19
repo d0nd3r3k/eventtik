@@ -70,6 +70,7 @@ ul.inline-signin li button{
     margin: 0;
     padding: 0;
     float: right;
+    color: #ccc;
 }
 .event-block img {
     height: 180px;
