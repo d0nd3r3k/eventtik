@@ -65,6 +65,34 @@ class edb {
 
         return mysql_insert_id();
     }
+    
+    public function reservation($user_id, $event_id, $data) {
+
+        $query = "INSERT INTO reservation (user_id,event_id,reservation) VALUES ('$user_id','$event_id','$data')";
+        mysql_query($query);
+    
+        return $data;
+    }
+    
+    public function getBooked($event_id) {
+        $query = "SELECT reservation FROM reservation WHERE event_id='$event_id'";
+        $result = mysql_query($query);
+        $data = array();
+        while ($row = mysql_fetch_object($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+  
+    public function getUserEvents($user_id){
+        $query = "SELECT event_id FROM reservation WHERE user_id='$user_id'";
+        $result = mysql_query($query);
+        $data = array();
+        while ($row = mysql_fetch_object($result)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
 
     public function insertEvent($name, $location, $theater, $type, $img, $description, $date) {
 

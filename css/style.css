@@ -71,6 +71,7 @@ ul.inline-signin li button{
     padding: 0;
     float: right;
     color: #ccc;
+    text-transform: capitalize;
 }
 .event-block img {
     height: 180px;
@@ -129,4 +130,15 @@ ul.inline-signin li button{
 .stage-wrapper{
     padding: 20px;
     margin-left: -14px;
+}
+#reserve{
+    margin-bottom: 10px;
+}
+.fError, .fSuccess{
+    position: absolute;
+    width: 300px;
+    text-align: center;
+    top: 45px;
+    left: 50%;
+    margin-left: -150px;
 }

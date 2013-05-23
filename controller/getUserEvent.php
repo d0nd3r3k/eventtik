@@ -5,10 +5,9 @@ include('../inc/db.php');
 
 $db = new edb();
 
-$event_id = $_POST['event_id'];
+$user_id = $_SESSION['id'];
 
-$events = $db->getBooked($event_id);
-
+$events = $db->getUserEvents($_SESSION['id']);
 
 echo json_encode($events);
 
